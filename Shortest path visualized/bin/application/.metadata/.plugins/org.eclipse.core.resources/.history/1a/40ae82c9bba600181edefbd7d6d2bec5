@@ -1,0 +1,54 @@
+package proj;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+public class Main{
+	public static int[] sol;
+	
+	public static boolean solve(int [] type ,int changes , int money) {
+		if(changes == money)
+		{
+			for(int i= 0 ; i < sol.length ; i++) {
+				if(sol[i]!= 0)
+					for(int j = 0; j < sol[i] ; j++) {
+						System.out.print(i+",");
+					}
+			}
+			System.out.println(" ");
+			return true;
+		}else {
+			for(int i = 0 ; i < type.length ; i++) {
+				sol[type[i]]+=1;
+				if(changes + type[i] <= money)
+					{
+					solve(type, changes + type[i] , money);
+					}
+				sol[type[i]]-=1;
+			}
+		}
+		return false;
+	}
+	
+	
+	public static void main(String[] args) {
+//		int n=  10;
+//		int[] types = {1,5,4};
+//		sol = new int[300];
+//		solve(types , 0 , n);
+		List <Integer>x  = new ArrayList<Integer>();
+		x.add(5);
+		System.out.println(x[0]);
+	}
+}
+
+//
+//scene.setOnMousePressed((e)->{
+//	xOffset = e.getSceneX();
+//	yOffset = e.getSceneY();
+//});
+//scene.setOnMouseDragged((e)->{
+//	stage.setX(e.getScreenX() - xOffset);
+//	stage.setY(e.getScreenY() - yOffset );
+//});
