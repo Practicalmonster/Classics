@@ -17,6 +17,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root);
 			primaryStage.initStyle(StageStyle.UNDECORATED);
 			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("styler.css").toExternalForm());
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
